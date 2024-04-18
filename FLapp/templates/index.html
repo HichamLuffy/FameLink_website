@@ -8,9 +8,39 @@
         <title>FameLink | {{ title }}</title>
 
     </head>
-<body>
-    hello 
-</body>
+    <body>
+        <h1>Create New Portfolio</h1>
+        <form method="POST" action="{{ url_for('new_portfolio') }}">
+            {{ form.hidden_tag() }}
+            <div>
+                {{ form.username.label }}
+                {{ form.username(size=20) }}
+            </div>
+            <div>
+                {{ form.bio.label }}
+                {{ form.bio(rows=10, cols=50) }}
+            </div>
+            <div>
+                {{ form.insta.label }}
+                {{ form.insta }}
+            </div>
+            <div>
+                {{ form.github.label }}
+                {{ form.github }}
+            </div>
+            <div>
+                {{ form.twitter.label }}
+                {{ form.twitter }}
+            </div>
+            <div>
+                {{ form.linkedin.label }}
+                {{ form.linkedin }}
+            </div>
+            <div>
+                {{ form.submit() }}
+            </div>
+        </form>
+    </body>
 
 <footer class="footercontainer">
     <div class="footer__columns">
