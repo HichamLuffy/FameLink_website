@@ -1,18 +1,23 @@
 #!/usr/bin/python3
-"""quiz routes"""
+"""FLapp"""
 
 
 from flask import render_template, url_for, flash, redirect
 from FLapp import app, db
-from FLapp import User, Portfolio
-from FLapp import PortfolioForm, SkillsSection, MyworkSection, EducationSection, ContactSection, ServicesSection
+from FLapp.forms import PortfolioForm, SkillsSection, MyworkSection, EducationSection, ContactSection, ServicesSection
 
 
 @app.route("/")
 @app.route("/home")
 def home():
-    portfolios = Portfolio.query.all()
-    return render_template('index.html', portfolios=portfolios)
+    form = PortfolioForm()
+    service = ServicesSection()
+    skills = SkillsSection()
+    mywork = MyworkSection()
+    education = EducationSection()
+    contact = ContactSection()
+    return render_template('index.html', title="portfolios", form=form, contact = contact, service = service,
+                                skills = skills, mywork = mywork, education = education)
 
 @app.route("/portfolio/new", methods=['GET', 'POST'])
 def new_portfolio():

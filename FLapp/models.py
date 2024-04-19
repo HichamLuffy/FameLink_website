@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" quiz models a"""
+""" FL models"""
 
 
 from FLapp import db

@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+.section {
+    background-color: #333;
+    border: 1px solid #444;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.section h2 {
+    color: #08f;
+}
+
+.footercontainer {
+    background-color: #000;
+    color: #aaa;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    background-color: #222;
+    border: none;
+    color: white;
+}
+
+input[type="submit"] {
+    background-color: #08f;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    cursor: pointer;
+}

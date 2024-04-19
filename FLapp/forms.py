@@ -4,17 +4,18 @@
 
 from flask_wtf import FlaskForm
 from wtforms import StringField, TextAreaField, SubmitField
-from wtforms.validators import DataRequired, URL, Email
+from wtforms.validators import DataRequired, URL, Email, Optional
 
 
 class PortfolioForm(FlaskForm):
-    username = StringField('Title', validators=[DataRequired()])
-    bio = TextAreaField('Content', validators=[DataRequired()])
-    insta = StringField('Instagram', validators=[URL()])
-    github = StringField('GitHub', validators=[URL()])
-    twitter = StringField('Twitter', validators=[URL()])
-    linkedin = StringField('LinkedIn', validators=[URL()])
+    username = StringField('Username', validators=[DataRequired()])
+    bio = TextAreaField('Bio', validators=[DataRequired()])
+    insta = StringField('Instagram', validators=[Optional(), URL(require_tld=False)])
+    github = StringField('GitHub', validators=[Optional(), URL(require_tld=False)])
+    twitter = StringField('Twitter', validators=[Optional(), URL(require_tld=False)])
+    linkedin = StringField('LinkedIn', validators=[Optional(), URL(require_tld=False)])
     submit = SubmitField('Create Portfolio')
+
 
 
 class ServicesSection(FlaskForm):
@@ -27,7 +28,10 @@ class SkillsSection(FlaskForm):
     submit = SubmitField('Save Skills')
 
 class MyworkSection(FlaskForm):
-    pass
+    work_title = StringField('Work Title', validators=[DataRequired()])
+    work_description = TextAreaField('Work Description', validators=[DataRequired()])
+    work_link = StringField('Work URL', validators=[Optional(), URL(require_tld=False)])
+    submit = SubmitField('Save Work')
 
 class EducationSection(FlaskForm):
     education_title = StringField('Education Title', validators=[DataRequired()])
